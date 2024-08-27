@@ -1,0 +1,19 @@
+.blackout {
+    opacity: 1;
+    transition: opacity .2s ease .1s;
+    cursor: pointer;
+}
+
+.blackout:hover {
+    opacity: .6;
+}
+
+.photo__section {
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    margin: 30px auto;
+}
+
+

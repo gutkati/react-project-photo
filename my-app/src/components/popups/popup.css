@@ -1,0 +1,132 @@
+.popup {
+    background-color: rgba(0, 0, 0, 0.5);
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    justify-content: center;
+    align-items: center;
+    display: flex;
+    visibility: hidden;
+    opacity: 0;
+    transition: visibility 0s, opacity 0.5s linear, .5s;
+    z-index: 2;
+}
+
+.popup_opened {
+    visibility: visible;
+    opacity: 1;
+    transition: visibility 0s, opacity 0.5s linear, .5s;
+    z-index: 1;
+}
+
+.popup__form {
+    width: 400px;
+    height: 400px;
+    border-radius: 20px;
+    background: white;
+    padding: 20px;
+    box-sizing: border-box;
+    box-shadow: 0 0 20px -2px #000000;
+}
+
+.popup__close .form__save .popup__close-img {
+    cursor: pointer;
+    box-shadow: 0 0 4px rgba(0, 0, 0, 0.2);
+}
+
+.popup-btn__style {
+    background: transparent;
+    border: none;
+    font-size: 20px;
+    font-weight: bold;
+    color: #cbcbcb;
+}
+
+.popup-btn__style:hover {
+    color: #f6f6f6;
+    cursor: pointer;
+}
+
+.popup__close {
+    position: relative;
+    left: 400px;
+    bottom: 70px;
+}
+
+.popup__close-img {
+    position: relative;
+    left: 520px;
+    bottom: 30px;
+}
+
+.popup__prev-img {
+    position: relative;
+    left: -90px;
+    bottom: 280px;
+}
+
+.popup__next-img {
+    position: relative;
+    left: 540px;
+    bottom: -250px;
+}
+
+.form {
+    text-align: center;
+}
+
+.form h2 {
+    margin: 0 0 20px;
+}
+
+.inputs__form .container__input {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+.container__input {
+    margin-bottom: 10px;
+
+}
+
+.container__input input {
+    width: 300px;
+}
+
+.popup__img {
+    width: 500px;
+    height: 500px;
+}
+
+.popup__img img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.popup__img-desc {
+    color: #f6f6f6;
+}
+
+.popup__delete {
+    margin: 50px 0 70px;
+    font-size: 36px;
+    color: #474747;
+}
+
+.popup__avatar {
+    margin: 40px 0 100px;
+}
+
+.popup__avatar label {
+    margin-bottom: 20px;
+}
+
+.popup__avatar input {
+    width: 350px;
+    padding: 5px;
+    box-sizing: border-box;
+}
