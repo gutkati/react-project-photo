@@ -1,8 +1,8 @@
 import React from 'react';
 import styles from './CardList.module.css'
-import Card from "../../components/card/card";
+import Card from "../card/card";
 import {useSelector} from "react-redux";
-import {selectAllCards} from "./cardsSlice";
+import {selectAllCards} from "../../parts/cardsSlice";
 
 const CardList = (props) => {
 

@@ -70,7 +70,7 @@
 .popup__next-img {
     position: relative;
     left: 540px;
-    bottom: -250px;
+    bottom: 280px;
 }
 
 .form {
@@ -89,26 +89,27 @@
 
 .container__input {
     margin-bottom: 10px;
-
-}
-
-.container__input input {
-    width: 300px;
 }
 
 .popup__img {
     width: 500px;
+}
+
+.popup__box-img {
+    width: 500px;
     height: 500px;
 }
 
-.popup__img img {
+.popup__photo {
     width: 100%;
-    height: 100%;
+    height: 500px;
     object-fit: cover;
 }
 
 .popup__img-desc {
+    display: inline-block;
     color: #f6f6f6;
+    margin-top: 5px;
 }
 
 .popup__delete {
@@ -125,8 +126,8 @@
     margin-bottom: 20px;
 }
 
-.popup__avatar input {
-    width: 350px;
-    padding: 5px;
-    box-sizing: border-box;
-}
+/*.popup__avatar input {*/
+/*    width: 350px;*/
+/*    padding: 5px;*/
+/*    box-sizing: border-box;*/
+/*}*/

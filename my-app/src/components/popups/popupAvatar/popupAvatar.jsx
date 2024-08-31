@@ -1,10 +1,10 @@
 import React, {useState} from 'react';
-import PopupWithForm from "./popupWithForm";
-import Input from "../input";
+import PopupWithForm from "../popupWithForm/popupWithForm";
+import Input from "../../input/input";
 import {useDispatch, useSelector} from "react-redux";
-import {selectUser} from "../../parts/userSlice";
-import {avatarUpdate} from "../../parts/userSlice";
-import './popup.css'
+import {selectUser} from "../../../parts/userSlice";
+import {avatarUpdate} from "../../../parts/userSlice";
+import '../popups.css'
 
 const PopupAvatar = ({isOpenPopup, onClose}) => {
     const data = useSelector(state => selectUser(state))

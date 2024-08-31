@@ -1,11 +1,12 @@
-import React, {useEffect, useState} from 'react';
-import PopupWithForm from "./popupWithForm";
+import React, {useState} from 'react';
+import PopupWithForm from "../popupWithForm/popupWithForm";
+import Input from "../../input/input";
 import {useDispatch, useSelector} from "react-redux";
-import {cardUpdate} from "../../parts/cardList/cardsSlice";
-import Input from "../input";
-import {selectUser} from "../../parts/userSlice";
+import {cardAdded} from "../../../parts/cardsSlice";
+import {selectUser} from "../../../parts/userSlice";
+import '../popups.css'
 
-const PopupEditCard = ({card, isOpenPopup, onClose}) => {
+const PopupAddCard = ({isOpenPopup, onClose}) => {
 
     const data = useSelector(state => selectUser(state))
     let birthUser = data[0].birth // дата рождения юзера
@@ -13,30 +14,22 @@ const PopupEditCard = ({card, isOpenPopup, onClose}) => {
     const [photo, setPhoto] = useState('')
     const [year, setYear] = useState('')
     const [location, setLocation] = useState('')
-    const [age, setAge] = useState('')
-
-    useEffect(() => {
-        setPhoto(card.photo)
-        setYear(card.year)
-        setLocation(card.location)
-        setAge(card.age)
-    }, [isOpenPopup]);
+    const [age, setAge] = useState(0)
 
     const onPhotoChange = (e) => setPhoto(e.target.value)
     const onYearChange = (e) => {
         setYear(e.target.value)
-        setAge(getAgeUser(e.currentTarget.value, getYearBirth(birthUser)))
+        setAge(getAgeUser(e.currentTarget.value, getYearBirthUser(birthUser)))
     }
     const onLocationChange = (e) => setLocation(e.target.value)
 
-    // получить год рождения юзера
-    function getYearBirth(birthUser) {
+
+    function getYearBirthUser(birthUser) {
         let str = /(?<year>\d{4})/
         let resYear = birthUser.match(str)
         return resYear.groups.year
     }
 
-    // получить возраст юзера
     function getAgeUser(yearPhoto, yearBirth) {
         let age = Number(yearPhoto) - Number(yearBirth)
         return age
@@ -44,16 +37,16 @@ const PopupEditCard = ({card, isOpenPopup, onClose}) => {
 
     const dispatch = useDispatch()
 
-    function onSaveEditCard() {
+    function onSaveCardClick(e) {
+        e.preventDefault()
+
         if (photo, year, location) {
-            dispatch(
-                cardUpdate({
-                    photo,
-                    year,
-                    location,
-                    age
-                })
-            )
+            dispatch(cardAdded(photo, year, location, age))
+
+            setPhoto('')
+            setYear('')
+            setLocation('')
+            onClose()
         }
     }
 
@@ -61,11 +54,10 @@ const PopupEditCard = ({card, isOpenPopup, onClose}) => {
         <PopupWithForm
             isOpen={isOpenPopup}
             onClose={onClose}
-            onSave={onSaveEditCard}
-            title='Редактировать карточку'
+            title='Добавить фотографию'
             titleBtn='Сохранить'
+            onSave={onSaveCardClick}
         >
-
             <div className='inputs__form'>
                 <div className='container__input'>
                     <label htmlFor="photoUser">Фотография</label>
@@ -99,9 +91,8 @@ const PopupEditCard = ({card, isOpenPopup, onClose}) => {
                     />
                 </div>
             </div>
-
         </PopupWithForm>
     );
 };
 
-export default PopupEditCard;
+export default PopupAddCard;

@@ -1,9 +1,9 @@
 import React, {useState} from 'react';
-import PopupWithForm from "./popupWithForm";
-import Input from "../input";
-import './popup.css';
+import PopupWithForm from "../popupWithForm/popupWithForm";
+import Input from "../../input/input";
+import '../popups.css';
 import {useSelector, useDispatch} from "react-redux";
-import {selectUser, userUpdate} from "../../parts/userSlice";
+import {selectUser, userUpdate} from "../../../parts/userSlice";
 
 const PopupEditProfile = ({isOpenPopup, onClose}) => {
 
@@ -19,7 +19,6 @@ const PopupEditProfile = ({isOpenPopup, onClose}) => {
     const onNameChange = (e) => setName(e.target.value)
     const onLastNameChange = (e) => setLastName(e.target.value)
     const onDateBirthChange = (e) => setBirth(e.target.value)
-
 
     const dispatch = useDispatch()
 
@@ -37,7 +36,6 @@ const PopupEditProfile = ({isOpenPopup, onClose}) => {
             onClose()
         }
     }
-
 
     return (
         <PopupWithForm

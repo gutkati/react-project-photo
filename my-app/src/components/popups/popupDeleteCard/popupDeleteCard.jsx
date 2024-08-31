@@ -1,8 +1,8 @@
 import React from 'react';
-import PopupWithForm from "./popupWithForm";
-import './popup.css'
+import PopupWithForm from "../popupWithForm/popupWithForm";
+import '../popups.css'
 import {useDispatch} from "react-redux";
-import {cardDelete} from "../../parts/cardList/cardsSlice";
+import {cardDelete} from "../../../parts/cardsSlice";
 
 const PopupDeleteCard = ({card, isOpenPopup, onClose}) => {
 

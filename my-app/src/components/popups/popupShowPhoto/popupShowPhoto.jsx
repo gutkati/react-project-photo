@@ -1,8 +1,7 @@
 import React, {useEffect, useState} from 'react';
-import './popup.css'
+import '../popups.css'
 import {useSelector} from "react-redux";
-import {selectAllCards} from "../../parts/cardList/cardsSlice";
-
+import {selectAllCards} from "../../../parts/cardsSlice";
 
 const PopupShowPhoto = ({isOpenPopup, onClose, card}) => {
     const allCards = useSelector(state => selectAllCards(state))
@@ -23,8 +22,7 @@ const PopupShowPhoto = ({isOpenPopup, onClose, card}) => {
         })
     }, [isOpenPopup])
 
-    // получить следующую карточку
-    function handleCardNext() {
+    function getCardNext() {
         if (index === cardsLength) {
             setIndex(index = 0)
             setShowCard(allCards[index])
@@ -34,8 +32,7 @@ const PopupShowPhoto = ({isOpenPopup, onClose, card}) => {
         }
     }
 
-    // получить предыдущую карточку
-    function handleCardPrev() {
+    function getCardPrev() {
         if (index === 0) {
             setIndex(index = cardsLength)
             setShowCard(allCards[index])
@@ -43,17 +40,22 @@ const PopupShowPhoto = ({isOpenPopup, onClose, card}) => {
             setIndex(index = index - 1)
             setShowCard(allCards[index])
         }
-
     }
 
     return (
         <div className={`popup ${isOpenPopup ? 'popup_opened' : ""}`}>
             <div className='popup__img'>
                 <button onClick={onClose} className='popup-btn__style popup__close-img'>✖</button>
-                <button onClick={handleCardNext} className='popup-btn__style popup__next-img'>ᐳ</button>
-                <img className='popup__img' src={showCard.photo} alt=""/>
+
+                <div className='popup__box-img'>
+
+                    <img className='popup__photo' src={showCard.photo} alt=""/>
+                    <button onClick={getCardNext} className='popup-btn__style popup__next-img'>ᐳ</button>
+                    <button onClick={getCardPrev} className='popup-btn__style popup__prev-img'>ᐸ</button>
+                </div>
+
                 <span className='popup__img-desc'>{showCard.location}</span>
-                <button onClick={handleCardPrev} className='popup-btn__style popup__prev-img'>ᐸ</button>
+
             </div>
         </div>
     );

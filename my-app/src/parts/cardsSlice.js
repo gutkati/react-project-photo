@@ -59,12 +59,6 @@ export default cardsSlice.reducer
 
 export const selectAllCards = (state) => state.cards.cards
 
-export const selectCardById = (state, cardId) => {
-    // не смогла получить карточку по id
-}
-
-
-// получить массив карточек
 export function getArrCards() {
     arrCards = JSON.parse(localStorage.getItem('cards')) || []
     return arrCards

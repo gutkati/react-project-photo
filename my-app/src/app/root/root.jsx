@@ -1,16 +1,16 @@
 import React, {useState, useEffect} from 'react';
 import styles from "./Root.module.css";
-import PopupEditProfile from "../../components/popups/popupEditProfile";
+import PopupEditProfile from "../../components/popups/popupEditProfile/popupEditProfile";
 
 // помощью useSelector будем получать данные из store:
 import {useSelector} from 'react-redux'
 import {selectUser} from "../../parts/userSlice";
-import CardList from "../../parts/cardList/cardList";
-import PopupShowPhoto from "../../components/popups/popupShowPhoto";
-import PopupAddCard from "../../components/popups/popupAddCard";
-import PopupDeleteCard from "../../components/popups/popupDeleteCard";
-import PopupEditCard from "../../components/popups/popupEditCard";
-import PopupAvatar from "../../components/popups/popupAvatar";
+import CardList from "../../components/cardList/cardList";
+import PopupShowPhoto from "../../components/popups/popupShowPhoto/popupShowPhoto";
+import PopupAddCard from "../../components/popups/popupAddCard/popupAddCard";
+import PopupDeleteCard from "../../components/popups/popupDeleteCard/popupDeleteCard";
+import PopupEditCard from "../../components/popups/popupEditCard/popupEditCard";
+import PopupAvatar from "../../components/popups/popupAvatar/popupAvatar";
 import {getProfile} from "../../parts/userSlice";
 
 const Root = () => {
@@ -136,7 +136,6 @@ const Root = () => {
                 onClose={handleClosePopup}
             />
         </>
-
     );
 };
 

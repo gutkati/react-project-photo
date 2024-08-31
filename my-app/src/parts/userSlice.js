@@ -1,6 +1,6 @@
 import {createSlice, nanoid} from "@reduxjs/toolkit";
 
-// массив с данными из хранилища
+// массив с данными при первой инициализации
 const firstData = [
     {
         id: nanoid(),
@@ -86,8 +86,6 @@ export const {userUpdate, avatarUpdate} = userSlice.actions
 
 export default userSlice.reducer
 
-
-// получить данные юзера
 export const selectUser = (state) =>
     state.user.user.map((el) => el)
 

@@ -1,13 +1,7 @@
 import React from 'react';
 import styles from "./Card.module.css";
-import {useParams} from 'react-router-dom'
-import {useDispatch, useSelector} from "react-redux";
-import {selectAllCards, cardDelete} from "../../parts/cardList/cardsSlice";
 
 const Card = ({isOpenPopup, card, isOpenPopupDelCard, isOpenPopupEditCard}) => {
-    const {cardId} = useParams()
-
-    const arrCards = useSelector(state => selectAllCards(state))
 
     function handleCardClick() {
         isOpenPopup(card)

@@ -1,8 +1,7 @@
 // создать хранилище store, в котором будет хранится глобальное состояние нашего приложения.
 import {configureStore} from '@reduxjs/toolkit'
 import userReducer from '../parts/userSlice'
-import cardsReducer from '../parts/cardList/cardsSlice'
-
+import cardsReducer from '../parts/cardsSlice'
 
 // создать store
 // теперь при возникновении action все данные для слайса state.user

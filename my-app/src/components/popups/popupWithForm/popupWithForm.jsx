@@ -1,5 +1,5 @@
 import React from 'react';
-import './popup.css'
+import '../popups.css'
 
 const PopupWithForm = (props) => {
     return (
